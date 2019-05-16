@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			function btnCli(){
+				alert(44944);
+			}
+			
+			
+			function init(){
+				alert("页面加载成功");
+				document.getElementById("btn2").onclick=btn2cli;
+			}
+			
+			var  btn2cli=function(){
+				alert("244944");
+			}
+			
+		</script>
+	</head>
+	<body onload="init()">
+		<input type="button" value="点击我试试" onclick="btnCli()">
+		
+		<input type="button" value="点击试试2" id="btn2">
+	</body>
+	<script>
+		
+	</script>
+</html>
