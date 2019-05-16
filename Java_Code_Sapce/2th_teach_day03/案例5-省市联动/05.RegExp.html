@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script>
+		var r1=/^[0-9]$/;
+		var i=1;
+		//alert(r1.test(i));
+		
+		var r2=/^[a-z0-9_-]{3,16}$/
+		var s="12";
+		//alert(r2.test(s));//false
+		
+		s="123"
+		alert(r2.test(s));//true
+	</script>
+	<body>
+	</body>
+</html>

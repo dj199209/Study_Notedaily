@@ -1,16 +1,15 @@
 {
 	"folders": [
 		{
-			"name": "Java_Code_Sapce",
-			"path": "Java_Code_Sapce"
-		},
-		{
 			"name": "NoteDaily",
 			"path": "NoteDaily"
+		},
+		{
+			"path": "Java_Code_Sapce\\2th_my_day03"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "Java_Code_Sapce",
+		"liveServer.settings.multiRootWorkspaceName": "2th_my_day03",
 		"liveServer.settings.port": 5501
 	}
 }
