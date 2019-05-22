@@ -1,0 +1,578 @@
+
+网站分享:
+	http://www.runoob.com/
+
+回顾:
+html:展示
+	文件 标签:
+		<html>
+			<head>
+				<title></title>
+				<meta>
+				<link>
+				<style></style>
+			</head>
+			<body></body>
+		</html>
+	排版标签:
+		p 段落
+		hr 分割线
+		br 换行
+	
+	字体标签:
+		<font></font>
+		h1~h6 标题标签
+		
+		b strong
+		i
+	图片标签:
+		<img src="图片的路径" alt="替代文字" width="" height=""/>
+	超链接标签
+		<a href="跳转的路径" target="在那里打开">xx</a>
+	列表标签
+		<ul></ul>
+		<ol></ol>
+		子标签
+			<li></li>
+	表格★
+		<table border="1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		
+		td的重要属性:
+			colspan:列合并
+			rowspan:行合并
+	
+	表单标签:★
+		表单作用:收集用户信息
+		form:
+			常见的属性:
+				action:设置提交路径
+				method:提交方式
+					get和post
+			常见的子标签:
+				input
+				select
+				textarea
+		
+		input标签:
+			属性:
+				type取值:(10)
+					text:文本框
+					password:密码
+					radio:单选框
+					checkbox:多选框
+					file:文件框
+					
+					submit:提交
+					reset:重置
+					button:普通按钮
+					
+					hidden:隐藏域
+					image:图片提交 
+				name属性:
+					1.提交到服务器
+					2.将单选框或者复选框设置为一组
+		
+		select:下拉选
+			格式:
+				<select name="">
+					<option>-请选择-</option>
+					<option value="">展示的信息</option>
+				</select>
+		
+		textarea:文本域
+			格式:
+				<textarea rows="" cols="">默认值</textarea>
+				
+		默认值:
+			text password:设置value属性
+			radio checkbox:设置 checked="checked"属性
+			select:在option上设置 selected="selected"属性
+		value可以设置按钮的展示文字
+	
+	框架:
+		frameset:框架集
+			常用属性:
+				cols:
+				rows:
+			常用子标签:
+				frame
+		frame:
+			常用属性:
+				src:展示的页面
+				name:给当前的frame起个名字 方便a标签使用
+	
+	块标签:div+css布局
+		div
+		span
+//////////////////////////////////////////////////////
+css:★
+	层叠样式表:渲染
+	格式:
+		选择器:{属性:值;属性1:值1}
+	html和css的整合
+		方式1:内敛样式表 通过标签的style属性
+			<xxx style="..."/>
+		方式2:内部样式表 通过head的style子标签
+			<style>....</style>
+		方式3:外部样式表 通过link标签导入
+			<link...>
+	
+	选择器:
+		id选择器 #id值
+		class选择器 .class值
+		元素选择器 标签名
+		
+		属性选择器	标签名[属性="值"]
+		后代选择器  
+			选择器 后代选择器
+		锚伪类
+
+	字体 文本 背景 列表(list-style-type:none) 浮动:float 
+	清除浮动(分类) clear
+	显示(分类)	display: none  block inline
+	框模型:内边距 边框 外边距
+////////////////////////////////////////
+js:javascript 脚本 直接解释就可以
+	js和html整合:
+		方式1:在html页面中
+			<script></script>
+		方式2:外部的js文件
+			<script src=""></script>
+	js组成部分:
+		ECMAScript:语法
+		BOM:浏览器对象模型
+		DOM:文档对象模型
+	
+基础语法:
+	var 变量名=值;
+数据类型:
+	原始类型
+		Undefined Null String Number Boolean
+		通过typeof判断属于那种类型
+	引用类型
+		Number Boolean
+		★String
+			属性:length
+			方法:
+				substring
+		★Array
+			属性:length
+			方法:
+				join(分隔符):打印数组
+		Math
+		Date
+		RegExp
+			直接量语法: 
+				/正则表达式/
+			方法:
+				test()
+		全局
+			decodeURI
+			encodeURI
+			
+			eval()
+////////////////////////
+函数:
+	function 函数名(参数列表){
+		函数体
+	}
+	
+	匿名函数:
+		function(){....}
+
+事件:
+	常见事件:
+		焦点:
+			onfocus
+			onblur
+		表单:
+			onsubmit
+			onchange
+		页面元素加载
+			onload
+		单击
+			onclick
+绑定事件:
+	方式1:通过标签的事件属性
+		<xxx onxxx="函数(参数)"/> 参数若是:this 将当前的dom对象传递给函数
+	方式2:派发事件
+		dom对象.onxxx=function(){...}
+///////////////////////
+bom
+	window:窗口
+		常用属性:
+			window.location
+			//////
+		常用方法:
+			消息框
+				alert() confirm() prompt()
+			定时器
+				setInterval()
+				setTimeout()
+			打开关闭 open close
+	location:定位
+		location.href;获取当前的url
+		location.href="..";设置url 相当于a标签
+	history:历史
+		go()
+/////////////////////////
+dom
+	节点(Node)
+		元素节点
+		属性节点
+		文本节点
+		
+		文档节点
+	获取其他节点
+		document.getElementById("id值"):一个元素
+		document.getElementsByTagName("标签名"):多个
+		document.getElementsByClassName("class值")
+		document.getElementsByName("name值")
+	操作属性
+		dom对象.属性:
+			例如  
+				dom对象.value;
+				dom对象.value="";
+				dom对象.style.css属性="值";
+	操作标签体:
+		dom对象.innerHTML;获取
+		dom对象.innerHTML="";设置
+/////////////////////////////
+jquery:
+	js类库:对原生js常见的方法和对象进行封装,方便使用
+html和jquery整合:
+		通过script标签src属性
+获取jquery对象:
+	$("选择器") jQuery("选择器")
+dom对象和jquery对象转换
+	dom>>>jquery   $(dom对象)
+	jquery>>>dom 
+		方式1:
+			jquery对象[index]
+		方式2:
+			jquery对象.get(index)
+页面载入:
+	$(document).ready(function(){....})
+	$(function(){ ...})
+事件和js中的事件一样:把on去掉即可
+	$("选择器").xxx(function(){...})
+选择器:
+	$("#id") $(".class") $("元素") $("[属性]") $("[属性='值']")
+	a b: 后代  a>b:孩子   a+b:大弟弟  a~b:所有弟弟
+	:first :last :odd :even  :eq(index)..
+	:has('选择器')
+	:hidden  :visible
+	:input
+	:checked :selected
+属性和css操作:
+	attr|prop
+		prop("属性"):获取
+		prop("属性","值"):设置一个
+		prop({
+			"":"",
+			"":""
+		}):设置多个
+		
+	removeAttr|removeProp(属性)
+	
+	addClass("class名称")
+	removeClass("class名称")
+	
+	css: 针对style属性
+		css("属性"):
+		css("属性","值"):
+		css({
+			"":"",
+			"":""
+		}):设置多个
+	
+	height() width()
+		
+对value属性 标签体的操作
+	xxx():获取
+	xxx("笑嘻嘻的说法"):设置
+		
+		val():
+		html():
+		text():
+
+对文档操作:
+	内部插入
+		append
+		prepend
+	 	
+	外部插入
+		after
+		before
+		
+	删除
+		empty()清空
+		remove()删除
+//////////////////////
+效果:
+	hide() show() toggle()
+滑入滑出
+	slideDown() slideUp()
+淡入淡出
+	fadeIn() fadeOut()
+////////////////////////
+遍历
+	方式1:
+		jquery对象.each(function(){});
+	方式2:
+		$.each(jquery对象,function(){});
+//////////////////////////////
+案例1-表单校验
+需求:
+	通过validate插件来校验表单
+技术分析:
+	jqery validate
+validate使用步骤:
+	validate是别人封装好的第三方工具
+	1.导入jquery.js
+	2.导入validate.js
+	3.在页面加载成功之后 对表单进行校验  $("选择器").validate()
+	4.在validate中编写校验规则
+		$("选择器").validate({
+			rules:{},
+			messages:{}
+		});
+//////////////////////////////////////////	
+	rules格式:
+		格式1:
+			字段的name属性:"校验器"
+		格式2:				
+			字段的name属性:{校验器:值,校验器:值}
+	例如:
+		username:"required",
+		password:{
+			required:true,
+			digits:true
+		},
+		repassword:{
+			equalTo:"[name='password']"
+		},
+		zuixiaozhi:{
+			min:5
+		},
+		shuzhiqujian:{
+			range:[5,10]
+		}
+///////////////////////////////////////////	
+	messages的格式:
+		格式1:
+			字段的name属性:"提示信息"
+		格式2:
+			字段的name属性:{校验器:"提示信息",校验器:提示信息"}
+	例如:
+		username:"用户名不能为空",
+		password:{
+			required:"密码不能为空",
+			digits:"密码只能是数字"
+		},
+		repassword:{
+			equalTo:"两次输入的内容不一致"
+		},
+		zuixiaozhi:{
+			min:"最小值应该大于{0}"
+		},
+		shuzhiqujian:{
+			range:"输入的范围在{0}~{1}之间"
+		}
+////////////////////////////////////////////
+
+
+////////////////////////////////////////////	
+案例2-创建一个响应式的页面
+需求:
+	创建一套页面,可以根据上网设备的不同自动调节显示的效果.
+技术分析:
+	bootstrap
+bootstrap:
+	webcss框架,
+	集合了html/css/jquery为一家
+	创建响应式的页面
+	响应式:适配不同的上网设备
+bootstarp的入门
+	1.下载bootstarp
+		网站:http://www.bootcss.com/
+		下载:用于生产环境的 Bootstrap
+	2.导入bootstarp.css
+	3.导入jquery.js
+	4.导入bootstrap.js
+	5.添加一个meta标签 支持移动设备
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	6.将所有的内容放入到布局容器中.
+		Bootstrap 需要为页面内容和栅格系统包裹一个 .container 容器。我们提供了两个作此用处的类
+		方式1:
+			<div class="container"></div>
+		方式1:
+			<div class="container-fluid"></div>
+注意:
+	bootstrap将每一行分成12份
+媒体查询:
+	假如大屏幕,每行显示6个
+		超大电脑,屏幕分辨率>1200		使用: col-lg-2
+		
+	假如屏幕小点,每行显示4个
+		992<屏幕分辨率<1200			使用: col-md-3
+			
+	再小点,每行显示2个
+		768<屏幕分辨率<992			使用: col-sm-6
+	
+	继续小,每行显示1个	
+		屏幕分辨率<768				使用:col-xs-12
+////////////////////////////
+bootstrap组成部分:
+	全局css样式--定义了一套css样式
+	组件--定义了很多可以直接使用的组件 例如:字体图标 导航条 
+	js插件--例如:轮播图 选项卡
+/////////////////////////////
+步骤分析:
+	1.先有一个模版页面 0.html
+	2.先创建一个导航条
+	3.下面创建一个轮播图
+	4.下面再创建3个div
+		中等屏幕的时候 3个在一行
+		小屏幕的时候 2个一行
+		最小屏幕的时候1个一行
+/////////////////////
+案例3-布局首页
+需求:
+	当屏幕为小屏幕的时候和超小屏幕的时候隐藏热门商品中的左边那张图片
+	当屏幕为超小屏幕隐藏middle图片
+技术分析:
+	hidden-xxxx
+步骤分析:
+	1.布局页面
+	2.创建8个div
+	3.第一个:logo
+		3个div 
+		小屏幕 2个一行 
+		超小屏幕一个一行
+	4.第二个div:导航条
+	5.第三个div:轮播图
+	6.第四个div:最新商品
+		先分成左右两个div
+			左边的div 放一张图片 
+				屏幕为小屏幕的时候和超小屏幕的时候 隐藏
+				中等屏幕 占2份
+			右边的div 
+				中等屏幕 占10份
+				屏幕为小屏幕的时候和超小屏幕的时候 占12份
+					middle 
+						中等屏幕 6份
+						小屏幕	12份
+						超小屏幕 隐藏
+					商品:
+						中等屏幕 2份
+						小屏幕 	 4份
+						超小屏幕 12份
+				
+	
+		
+		
+	
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+////////////////////////////////////////////////	
+////////////////////////////////////////////////
+validate
+	使用步骤:
+		1.导入jquery.js
+		2.导入validate.js
+		3.在页面加载成功之后	$(function(){})
+		4.对表单进行校验
+			$(function(){
+				$("选择器").validate();
+			})
+		5.编写校验的规则
+			$(function(){
+				$("选择器").validate({
+					rules:{},
+					messages:{}
+				});
+			})
+		6.编写具体的规则
+			$(function(){
+				$("选择器").validate({
+					rules:{
+						// name属性值:"校验器" 
+						// name属性值:{校验器:值,校验器:值}
+					},
+					messages:{
+						//name属性值:"提示信息"
+						//name属性值:{校验器:"提示信息",校验器:"提示信息"}
+					}
+				});
+			})
+		
+		/////////////
+		常用的校验器
+			必填:	required
+			最值:	min|max
+			取值范围:range		值:[min,mix]
+			相等:	equalTo		值:jquery表达式
+			长度:	minlength|maxlength
+			长度范围:rangelength 	值:[min长度,max长度]
+////////////////////////////////////
+bootstrap:编写一套页面,适应不同的设备(响应式)
+	使用步骤:
+		1.导入bootstarp.css
+		2.导入jquery.js
+		3.导入bootstarp.js
+		4.在head标签添加一个meta标签  支持移动设备
+		5.必须将所有的内容防止一个布局容器中
+			方式1:
+				放入一个class为.container容器中
+			方式1:
+				放入一个class为.container-fluid容器中
+			
+/////////////////
+栅格系统:
+	
+	屏幕分辨率>1200px    样式:col-lg-x
+	992<屏幕分辨率<1200px    样式:col-md-x   中等屏幕
+	768<屏幕分辨率<992px    样式:col-sm-x   小屏幕
+	屏幕分辨率<768px    样式:col-xs-x   最小屏幕
+
+隐藏:
+	hidden-xs 在最小屏幕时候隐藏
+
+将一个超链接伪装成一个按钮
+	class="btn btn-primary"
+
+浮动到右边
+	class="pull-right"
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
