@@ -308,4 +308,4 @@ var arr4=["aa","bb"];
   parseInt():尝试转成整数
   parseFLoat():尝试转换成小数
   eval()计算JavaScript字符串,并把它当做脚本代码来执行
-![](/img/2019-05-22-08-58-44.png)
+![](img/2019-05-22-08-57-58.png)
