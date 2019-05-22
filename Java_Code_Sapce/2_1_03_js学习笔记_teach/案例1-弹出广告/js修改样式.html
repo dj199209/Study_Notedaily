@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script>
+		//点击按钮之后,给id为divid0的元素添加 边框 背景色 宽高
+		function btnCli(){
+			//1.获取元素
+			var obj=document.getElementById("divid0");
+			//alert(obj)
+			
+			//2.操作元素
+			//添加背景色
+			obj.style.backgroundColor="#ff0";
+			
+			//添加边框
+			obj.style.border="1px solid red";
+			
+			//添加宽和高
+			obj.style.width="100px";
+			obj.style.height="100px";
+		}
+	</script>
+	<body>
+		<input type="button" value="将div加上样式" onclick="btnCli()"/>
+		<div id="divid0"></div>
+		
+	</body>
+</html>

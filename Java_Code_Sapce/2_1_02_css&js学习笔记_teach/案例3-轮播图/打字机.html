@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			var s="我们的明天更加美好!";
+			var i=0;
+			var divObj;
+			
+			function init(){
+				divObj=document.getElementById("divId");
+				setInterval(show,200);
+			}
+			
+			//往div中写内容
+			function show(){
+				i++;
+				var s_=s.substring(0,i);
+				//往div中设置内容
+				divObj.innerHTML=s_;
+				
+				//当字符串写完的时候 重新开始
+				if(i==s.length){
+					i=0;
+				}
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<div id="divId"></div>
+	</body>
+</html>
