@@ -300,12 +300,12 @@ var arr4=["aa","bb"];
     Math.常量|方法
     Math.pI
     Math.random()[0,1)
-  全局★
-  decodeURI()解码某个编码的URI
-  encodeURI把字符串编码为URI
-  Number():强制转换成数字
-  String():转成字符串
-  parseInt():尝试转成整数
-  parseFLoat():尝试转换成小数
-  eval()计算JavaScript字符串,并把它当做脚本代码来执行
-![](img/2019-05-22-08-57-58.png)
+  - 全局★
+    - decodeURI()解码某个编码的URI
+    - encodeURI把字符串编码为URI
+    - Number():强制转换成数字
+    - String():转成字符串
+    - parseInt():尝试转成整数
+    - parseFLoat():尝试转换成小数
+    - eval()计算JavaScript字符串,并把它当做脚本代码来执行
+![alt](img/2019-05-22-08-57-58.png))
