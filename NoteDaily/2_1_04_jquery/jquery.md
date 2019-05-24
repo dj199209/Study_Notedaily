@@ -20,8 +20,7 @@ alert(document.getElementById("username").value);
 var $username=$("#username");
 alert($username.val());
 ```
-//### jQuery案例1_弹出窗口
-
+### jQuery案例1_弹窗
 #### 技术实现:
 1.定时器
 2.jQuery
