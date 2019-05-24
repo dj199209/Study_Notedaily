@@ -6,10 +6,13 @@
 	<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			//获取两个元素
+			var $city=$("#city");
+			var $p2=$("#p2");
 		//1.在 p2 的后面插入 city
-		
+		 //$p2.after($city);
 		//2.在 p2 的前面插入 city
-		
+		$p2.before($city);
 		});
 	</script>
 	</head>

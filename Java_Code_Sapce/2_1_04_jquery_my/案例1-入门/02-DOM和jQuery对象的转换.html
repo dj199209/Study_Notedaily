@@ -8,4 +8,21 @@
 <body>
 	<input type="text" id="username" value="jack"/>
 </body>
+<script>
+//dom===>jqueery
+//1.获取dom对象
+var obj=document.getElementById("username");
+//2转化
+var $user=$(obj);
+alert($user.val());
+//jquery==>dom
+//1.获取jquery独享
+var $u=$("#username");
+//2.1方式1
+var obj =$u.get(0);
+alert(obj);
+//2.2方式2
+var obj =$u[0];
+alert(obj.value);
+</script>
 </html>

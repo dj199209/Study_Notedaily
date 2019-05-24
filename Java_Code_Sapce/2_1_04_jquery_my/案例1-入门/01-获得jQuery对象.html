@@ -3,8 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="../js/jquery-1.11.0.min.js"></script>
 </head>
 <body>
 	<input type="text" id="username" value="jack"/>
 </body>
+<script>
+//原生js方法的打印
+//alert(document.getElementById("username").value);
+var $username=$("#username");
+alert($username.val());
+</script>
 </html>

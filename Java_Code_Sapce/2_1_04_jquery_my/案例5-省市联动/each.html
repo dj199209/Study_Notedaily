@@ -7,7 +7,21 @@
  <script src="../js/jquery-1.11.0.min.js"></script>
  <script type="text/javascript">
  	$(function(){
- 		
+     $("#b1").click(function(){
+   //获取文本隐藏
+  // alert($("input:hidden").size());
+   $("input:hidden").each(function(index,dom){
+     //alert(this.value);
+     //alert($(this).val());
+     //alert(index);
+     //alert(dom.value);
+   });
+     });
+   	$("#b2").click(function(){
+       $.each($("input:hidden"),function(){
+         alert($(this).val());
+       })
+     })
  	});
  </script>
 </head>

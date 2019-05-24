@@ -9,7 +9,10 @@
  <link rel="stylesheet" type="text/css" href="../css/style.css" /> 
  <script type="text/javascript">
  	$(function(){
- 		
+  // <input type="button" value="选取含有class为mini元素 的div元素." id="btn1"/>
+  $("#btn1").click(function(){
+    $("div:has('.mini')").css("background-color","#0ff");
+  })
  	});
  </script>
 </head>
