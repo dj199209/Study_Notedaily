@@ -1,5 +1,5 @@
-学习笔记记录情况
-缺案例5_val-html-text操作之后的代码练习
+- 学习笔记记录情况
+  - 完成
 ## jQuery
 
 ### js类库
@@ -10,8 +10,11 @@
 <script src="../js/jquery-1.11.0.min.js"></script>
 ```
 ![](img/2019-05-23-09-57-24.png)
+
 #### jquery书写的方式方法
+
 - 原生js的写法
+
 ```js
 alert(document.getElementById("username").value);
 ```
@@ -58,6 +61,7 @@ $(function(){
 
 ***
 ### jquery和html的整合
+
 jquery是单独的js文件
 ```js
 $("选择器")
@@ -405,7 +409,45 @@ $(function(){
   attr({
       "属性1":"值1",
       "属性2":"值2"
-  })
+	})
+	
+#### 代码展示
+
+
+//1.1给username添加title属性
+			var $username = $("[name='username']");
+			$username.attr("title", "姓名");
+			//1.2获取username的title属性
+			alert($username.attr("title"));
+			//1.3给username添加value和class属性
+			$username.attr({
+				"value": "许多多",
+				"class": "textclass"
+			});
+			//1.4删除username的class属性
+			$username.removeAttr("class");
+			//2.1给username添加一个名为textClass的样式
+			$username.addClass("textclass");
+			//2.2删除username的名为textClass的样式
+			$username.removeClass("textclass");
+			//4.1 给div添加边框样式
+			var $div = $("div");
+			$div.css("border", "1px solid red");
+			//4.2 获取div的表框样式
+			alert($div.css("border"));
+			//4.3 给div添加多种样式
+			$div.css({
+				"width": "100px",
+				"height": "100px",
+				"background-color": "yellow"
+			});
+
+			//5 获取div的位置
+			alert($div.offset().left())
+			//6 获取div的高和宽
+			//alert($div.width());
+```
+
 ```
 - `removeAttr`("属性名称")---移除指定属性
 - 添加class属性的时候
@@ -422,7 +464,7 @@ css({
 "属性2":"值2"
 })
 ```
-####代码展示
+#### 代码展示
 ```js
 $(document).ready(function () {
     //1.1给username添加title属性
@@ -488,6 +530,8 @@ $(function () {
   })
 });
 ```
+
+
 ### 案例4_省市联动
   #### 步骤分析:
   1.确定事件:省份的下来选变化的时候 change
@@ -497,6 +541,27 @@ $(function () {
     c. 遍历数组,拼装成option元素,追加到时下拉选择即可
   * 注意:每次改变的时候初始化的值
 
+#### 代码实现
+
+```js
+	$(function () {
+		$("[name='pro']").change(function () {
+			//获取市的下拉选项
+			var $city = $("[name='city']");
+			//初始化
+			$city.html($("<option>").html("-请选择-"));
+			var pro = $(this).val();
+			//获取所有城市的数组
+			var cities = $(arr[pro]);
+			alert(cities);
+			//遍历数组,拼装成option 追加到市下拉选中
+			cities.each(function () {
+				$city.append("<option>" + this + "</option>")s
+			})
+
+		})
+	});
+```
 ***
 
 #### 技术分析
@@ -507,7 +572,7 @@ $(function () {
   `each`的`function`中可以加两个参数`index`和`dom`
   - `index`是当前遍历的索引
   - `dom`指代是当前遍历的dom对象(开发中一般使用this即可)
-  
+
   ***
 
 #### 设置获取标签体的内容
@@ -523,6 +588,37 @@ $(function () {
   - text:获取知识页面展示的内容
   
   ***
+#### 代码展示
+```js
+	$(document).ready(function(){
+		var $username=$("[name='username']");
+		$username.prop("value","许木木");
+		//3.1 获取 username的value属性的值
+		// alert($username.val());
+		//3.2 设置 username的默认值为"许多多"
+		$username.val("许多多");
+		//alert($username.val());
+		//3.3通过html获取div标签体的内容
+			var $div=$("div");
+			//alert($div.html());
+		//3.4通过html设置div标签体的内容
+		//$div.html("已满18岁请戴墨镜");
+		
+		//3.5通过text获取div标签体的内容
+		//alert($div.text())	;
+		//3.6通过text设置div标签体的内容
+		//$div.text("已满18,请带墨镜");
+		
+		//3.7 两者设置值的区别
+		// $div.html("<a href='#'>我是一个超链接</a>");//就是一个超链接
+		//$div.html($("<a href='#'>").html("我"));
+			$div.text("<a href='#'>我是一个超链接</a>");//返回<a href='#'>我是一个超链接</a>
+		//3.8 两者获取值的区别
+		alert($("#sp").html());//获取源码
+		alert($("#sp").text());//获取展示内容
+		
+		});	"
+```
 
 * 创建一个元素:`$("<标签></标签>")
   
@@ -606,52 +702,62 @@ $(document).ready(function(){
     - 左边选中的 追加到右边的下拉选择中
    c. 移动全部: 
     - 将左边的所有option追加到右边的下拉选择中
+#### 代码展示
+```js
+//移动一个
+	$(function () {
+		$("#toRight1").click(function () {
+			$("#left>option:selected:first").appendTo($("#right"));
+		})
+		//移动多个
+		$("#toRight2").click(function () {
+			$("#right").append($("#left option:selected"));
+		});
+		//移动全部
+		$("#toRight3").click(function () {
+			$("#right").append($("#left option"));
+		});
+	})
+
+
+```
+
+
+		****
+
 #### 技术分析
-  - 表单对象属性过来器选择
+
+- 表单对象属性过来器选择
     - `:enable`可用的
     - `:disable`不可用的
     - `:checked`选中的(针对单选框和复选框)
     - `:selected`选中的(针对于下拉选)
+
 #### 代码展示
+
 ```js
-//1.1给username添加title属性
-			var $username = $("[name='username']");
-			$username.attr("title", "姓名");
-			//1.2获取username的title属性
-			alert($username.attr("title"));
-			//1.3给username添加value和class属性
-			$username.attr({
-				"value": "许多多",
-				"class": "textclass"
-			});
-			//1.4删除username的class属性
-			$username.removeAttr("class");
-			//2.1给username添加一个名为textClass的样式
-			$username.addClass("textclass");
-			//2.2删除username的名为textClass的样式
-			$username.removeClass("textclass");
-			//4.1 给div添加边框样式
-			var $div = $("div");
-			$div.css("border", "1px solid red");
-			//4.2 获取div的表框样式
-			alert($div.css("border"));
-			//4.3 给div添加多种样式
-			$div.css({
-				"width": "100px",
-				"height": "100px",
-				"background-color": "yellow"
-			});
+```js
+    $(function () {
+      //   <button id="btn1">对表单内 可用input 赋值操作.</button>
+      $("#btn1").click(function () {
+        $("input:enabled").val("我们来自kg");
+      })
+      // <button id="btn2">对表单内 不可用input 赋值操作.</button>
+      $("#btn2").click(function () {
+        $("input:disabled").val("womshi");
+      })
+      // <button id="btn3">获取多选框选中的个数.</button>
+      $("#btn3").click(function () {
+        // alert($("input[ name='newsletter']:checked").size());
+        alert($("input[name='newsletter']:checked").size());
+      })
 
-			//5 获取div的位置
-			alert($div.offset().left())
-			//6 获取div的高和宽
-			//alert($div.width());
+      // <button id="btn4">获取下拉框选中的个数.</button	
+      $("#btn4").click(function () {
+        alert($(":selected").size());
+      })
+    });
 ```
-
-
-
-
-
 
 
 

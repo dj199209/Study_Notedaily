@@ -6,25 +6,31 @@
 	<script type="text/javascript" src="../js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-		
+		var $username=$("[name='username']");
+		$username.prop("value","许木木");
 		//3.1 获取 username的value属性的值
-		
+		// alert($username.val());
 		//3.2 设置 username的默认值为"许多多"
-		
+		$username.val("许多多");
+		//alert($username.val());
 		//3.3通过html获取div标签体的内容
-			
+			var $div=$("div");
+			//alert($div.html());
 		//3.4通过html设置div标签体的内容
-		
+		//$div.html("已满18岁请戴墨镜");
 		
 		//3.5通过text获取div标签体的内容
-			
+		//alert($div.text())	;
 		//3.6通过text设置div标签体的内容
-		
+		//$div.text("已满18,请带墨镜");
 		
 		//3.7 两者设置值的区别
-		
+		// $div.html("<a href='#'>我是一个超链接</a>");//就是一个超链接
+		//$div.html($("<a href='#'>").html("我"));
+			$div.text("<a href='#'>我是一个超链接</a>");//返回<a href='#'>我是一个超链接</a>
 		//3.8 两者获取值的区别
-		
+		alert($("#sp").html());//获取源码
+		alert($("#sp").text());//获取展示内容
 		
 		});	
 	</script>
