@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -6,11 +6,89 @@
     <title></title>
     <script src="js/mui.min.js"></script>
     <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/mian.css"/>
     <script type="text/javascript" charset="utf-8">
       	mui.init();
     </script>
 </head>
 <body>
-	
+<header class="mui-bar mui-bar-nav mui-pull-left">
+    <h1 class="mui-title ">微信</h1>
+    
+</header>
+<nav class="mui-bar mui-bar-tab">
+	<!--mui-icon是字体图标-->
+        <a class="mui-tab-item mui-active" href="#sub1">
+             <span class="mui-icon mui-icon-weixin"></span>
+            <span class="mui-tab-label">微信</span>
+        </a>	
+        <a class="mui-tab-item" href="#sub2">
+            <span class="mui-icon mui-icon-contact-filled" ></span>
+            <span	 class="mui-tab-label">通讯录</span>
+        </a>
+        <a class="mui-tab-item">
+            <span class="mui-icon mui-icon-navigate"></span>
+            <span class="mui-tab-label">发现</span>
+        </a>
+        <a class="mui-tab-item">
+            <span class="mui-icon mui-icon-person"></span>
+            <span class="mui-tab-label">我</span>
+        </a>
+    </nav>
+    <!--中间选择器放在末尾也可以达到正常输出的效果-->
+    <!--mb-->
+    <div class="mui-content" >
+		<div class="mui-control-content" id="sub1">
+			<ul class="mui-table-view">
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+			            <div class="mui-media-body">
+			                幸福
+			                <p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+			            <div class="mui-media-body">
+			                木屋
+			                <p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+			            </div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media">
+			        <a href="javascript:;">
+			            <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+			            <div class="mui-media-body">
+			                CBD
+			                <p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+			            </div>
+			        </a>
+			    </li>
+			</ul>
+		</div>
+   		 <div class="mui-control-content" id="sub2">
+    	<ul class="mui-table-view">
+    	        <li class="mui-table-view-cell">
+    	            <a class="mui-navigate-right">
+    	                Item 1
+    	            </a>
+    	        </li>
+    	        <li class="mui-table-view-cell">
+    	            <a class="mui-navigate-right">
+    	                 Item 2
+    	            </a>
+    	        </li>
+    	        <li class="mui-table-view-cell">
+    	            <a class="mui-navigate-right">
+    	                 Item 3
+    	            </a>
+    	        </li>
+    	    </ul>
+   </div>
+    </div>
+   
 </body>
 </html>
