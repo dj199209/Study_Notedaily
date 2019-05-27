@@ -1,11 +1,13 @@
 .mui-bar-nav{
-	background-color: #000000;
+/*	background-color: #000000;*/
 }
 .mui-title{
-	color: white;
+	/*color: white;*/
+	text-align: left ;
 }
 
-/*子孙选择器
+/*设置低端的颜色
+ *子孙选择器
  *只把选择的文字变为绿色
  * 使用群组选择器把属于选中状态下的图标变为绿色
  * */
