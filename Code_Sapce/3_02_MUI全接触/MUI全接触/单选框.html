@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">cheekbox</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-input-row mui-radio mui-left">
+				<label id="11_l" for="11">运动</label>
+				<input name="checkbox1" id="11" value="运动" type="radio">
+			</div>
+			<div class="mui-input-row mui-radio mui-left">
+				<label id="22_l" for="22">看书</label>
+				<input name="checkbox1" id="22"  value="看书" type="radio">
+			</div>
+			<div class="mui-input-row mui-radio mui-left">
+				<label id="33_l" for="33">跳舞</label>
+				<input name="checkbox1" id="33"  value="跳舞" type="radio">
+			</div>
+
+			<button type="button" class="mui-btn mui-btn-red mui-left" onclick="getVals()">获取值</button>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		var index=1;
+		function getVals() {
+			
+			var res =getRedioREs("input");
+			var id=res.id;
+			var value = res.checkVal;
+			mui.toast(JSON.stringify(res));
+			console.log(id)
+			document.getElementById(id).value=value+"+"+index;	
+			document.getElementById(id+"_l").innerHTML=value+"||"+index;	
+			index++;
+		}
+
+		function getRedioREs(InputName) {
+			var rdsObj = document.getElementsByTagName(InputName);
+			var checkVal,id;
+			for(i = 0; i < rdsObj.length; i++) {
+				if(rdsObj[i].checked) {
+					checkVal = rdsObj[i].value;
+					id=rdsObj[i].id;
+					break;
+				}
+			}
+			var data= {
+				id:id,
+				checkVal:checkVal
+			};
+			
+			return data;
+			//return checkVal;
+		}
+	</script>
+
+</html>

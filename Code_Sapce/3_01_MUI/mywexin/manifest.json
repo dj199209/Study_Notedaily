@@ -125,5 +125,60 @@
 				}
 			}
 		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"sub1.html"
+				],
+				"refer": [
+					"sub4.html",
+					"sub3.html",
+					"sub2.html"
+				],
+				"priority": 0
+			},
+			"sub1.html": {
+				"resources": [],
+				"refer": [
+					"sub1_Chat.html"
+				],
+				"priority": 0
+			},
+			"sub1_Chat.html": {
+				"resources": [],
+				"refer": [
+					"barcode_scan.html",
+					"saoma.html"
+				],
+				"priority": 0
+			},
+			"saoma.html": {
+				"resources": [],
+				"refer": [
+					"sub1_Chat.html"
+				],
+				"priority": 0
+			},
+			"sub3.html": {
+				"resources": [],
+				"refer": [
+					"sub3_PYQ_Header.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"css/mian.css",
+				"js/mui.min.js",
+				"fonts/mui.ttf",
+				"css/mui.min.css",
+				"js/mui.js",
+				"css/mui.css",
+				"text.html"
+			]
+		}
 	}
 }

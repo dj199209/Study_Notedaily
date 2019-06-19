@@ -1,0 +1,34 @@
+{
+	"index.html": {
+		"resources": [
+			"sub1.html"
+		],
+		"refer": [
+			"sub4.html",
+			"sub3.html",
+			"sub2.html",
+			"sub1.html"
+		]
+	},
+	"sub1.html": {
+		"refer": [
+			"sub1_Chat.html"
+		]
+	},
+	"sub1_Chat.html": {
+		"refer": [
+			"barcode_scan.html",
+			"saoma.html"
+		]
+	},
+	"saoma.html": {
+		"refer": [
+			"sub1_Chat.html"
+		]
+	},
+	"sub3.html": {
+		"refer": [
+			"sub3_PYQ_Header.html"
+		]
+	}
+}

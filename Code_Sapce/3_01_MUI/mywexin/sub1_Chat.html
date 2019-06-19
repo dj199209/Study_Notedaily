@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/common.js">
+		
+		</script>
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<script type="text/javascript">
+			//var img = null;
+			var blist = [];
+
+			function scaned(t, r, f) {
+				var li = null,
+					hl = document.getElementById('history');
+					li = document.createElement('li');
+					li.className = 'ditem';
+					hl.insertBefore(li, hl.childNodes[0]);
+				 
+				li.id = blist.length;
+				var htmls = '<div class="hdata">';
+				htmls += r;
+				htmls += '</div>';
+				li.innerHTML = htmls;
+				
+				mui.openWindow({
+					url: "saoma.html",
+					id: "saoma",
+					extras: {
+						htmls: htmls
+					}
+				})
+}
+				function onempty() {
+					if(window.plus) {
+						plus.nativeUI.alert('无扫描记录');
+					} else {
+						alert('无扫描记录');
+					}
+				}
+		</script>
+		<!--<script type="text/javascript">
+			mui('.mui-table-view-cell').on("tap", "a", function() {
+				var title = this.getAttribute("title");
+				mui.openWindow({
+					url: "sub1_Chat.html",
+					id: "sub1_Chat.html",
+					style: {},
+					extras: {
+						title: title
+					},
+					show: {
+						autoShow: true, //是否直接显示
+						aniShow: "slide-in-right", //动画显示方式
+						dueation: 100 //动画显示时间
+					},
+					//是否显示等待框
+					waiting: {
+						autoShow: true,
+						title: "正在加载....",
+						options: {
+							//				width:
+							//				height:
+						}
+					},
+				})
+			})
+		</script>-->
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title"></h1>
+		</header>
+		<div class="mui-content">
+			<div id="msg">
+				此处为聊天消息
+			</div>
+			<button type="button" class="mui-btn mui-btn-blue" id="gallery">打开相册</button>
+			<button type="button" class="mui-btn mui-btn-red" id="camera">打开摄像头</button>
+			<button type="button" class="mui-btn mui-btn-green" id="camera" onclick="clicked('barcode_scan.html',true,true)">扫一扫</button>
+			<ul id="history" class="dlist" style="text-align:left;">
+				<li id="nohistory" class="ditem" onclick="onempty()">无历史记录 </li>
+			</ul>
+			<button type="button" class="mui-btn mui-btn-red" id="getacc">重力感应</button>
+			<nav class="mui-bar mui-bar-tab">
+				<div class="mui-input-row">
+					<label><img src=""/></label>
+					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入聊天内容">
+				</div>
+			    
+			</nav>
+	</body>
+	</div>
+
+	<script type="text/javascript">
+		mui.plusReady(function() {
+			//拿到当前窗体-sub_Chat.html,前一个页面传一个参数,就相当于给webview增加一个属性
+			var cw = plus.webview.currentWebview();
+			//直接取属性值就可以拿到title值
+			var titleName = cw.title;
+			//alert(titleName)
+			var header = document.querySelector(".mui-title");
+			header.innerText = titleName;
+		})
+		var msgDom = document.getElementById("msg");
+		var galleryBtn = document.getElementById("gallery");
+		galleryBtn.addEventListener("tap", function() {
+			plus.gallery.pick(
+				function(path) {
+					var img = "";
+					for(var i in path.files)
+
+						//alert(path);
+						img += "<img width=100 height=100 src=" + path.files[i] + ">"
+					msgDom.innerHTML = img;
+				},
+				function(e) {
+					msgDom.innerHtML = e.message;
+				}, {
+					filter: "image",
+					multiple: true //支持照片多选
+				}
+
+			)
+		})
+		var cmDom=document.getElementById("camera");
+		 cmDom.addEventListener("tap", function() {
+			var cm = plus.camera.getCamera(1);
+			cm.captureImage(function(path) {
+				//alert(path);
+					
+
+				var url="file://"+plus.io.convertLocalFileSystemURL(path);
+				//alert(url);
+				var imgs = "<img width=100 height=100 src=" + url + ">";
+				msgDom.innerHTML = imgs;
+				
+			})
+		})
+		 var accDom=document.getElementById("getacc");
+		 accDom.addEventListener("tap",function(e){
+//		 	plus.accelerometer.watchAcceleration()//变动的加速度
+		 	plus.accelerometer.getCurrentAcceleration(function(a){
+		 		var msg=document.getElementById("nohistory");
+		 		msg.innerText="x"+a.xAxis+"\n y"
+		 		+a.yAxis+"\n z"+a.zAxis;
+		 	})
+		 })
+	</script>
+
+</html>

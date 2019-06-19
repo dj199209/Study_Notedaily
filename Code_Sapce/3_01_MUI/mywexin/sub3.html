@@ -13,6 +13,30 @@
 		<script type="text/javascript">
 			mui.init()
 		</script>
+		<div class="mui-content">
+		    <ul class="mui-table-view">
+		        <li class="mui-table-view-cell mui-media" id="pyq">
+		            <a href="javascript:;">
+		                <img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+		                <div class="mui-media-body">
+		                    
+		                    <p class="mui-ellipsis">朋友圈</p>
+		                </div>
+		            </a>
+		        </li>
+		       
+		    </ul>
+		</div>
 	</body>
-
+	
+	<script type="text/javascript">
+		var pyqDom = document.getElementById("pyq");
+		pyqDom.addEventListener("tap",function(){
+			mui.openWindow({
+				url:"sub3_PYQ_Header.html",
+				id:"sub3_PYQ_Header.html"
+			});
+		})
+	</script>
+	
 </html>

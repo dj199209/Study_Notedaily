@@ -13,6 +13,95 @@
 		<script type="text/javascript">
 			mui.init()
 		</script>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;" title="张三">
+						<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						<div class="mui-media-body">
+							张三
+							<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;" title="李四">
+						<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						<div class="mui-media-body">
+							李四
+							<p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;" title="呵呵哒">
+						<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						<div class="mui-media-body">
+							呵呵哒
+							<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;" title="张三">
+						<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						<div class="mui-media-body">
+							张三
+							<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;" title="李四">
+						<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						<div class="mui-media-body">
+							李四
+							<p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;" title="呵呵哒">
+						<img class="mui-media-object mui-pull-left" src="http://placehold.it/40x30">
+						<div class="mui-media-body">
+							呵呵哒
+							<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+
 	</body>
+	<script type="text/javascript">
+		mui('.mui-table-view-cell').on("tap", "a", function() {
+			var title = this.getAttribute("title");
+			mui.openWindow({
+				url: "sub1_Chat.html",
+				id: "sub1_Chat.html",
+				style: {},
+				extras: {
+					title: title
+				},
+				show: {
+					autoShow: true, //是否直接显示
+					aniShow: "slide-in-right", //动画显示方式
+					dueation: 100 //动画显示时间
+				},
+				//是否显示等待框
+				waiting: {
+					autoShow: true,
+					title: "正在加载....",
+					options: {
+						//				width:
+						//				height:
+					}
+				},
+			})
+		})
+	</script>
 
 </html>

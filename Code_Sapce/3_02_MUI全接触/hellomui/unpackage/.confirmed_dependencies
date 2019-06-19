@@ -1,0 +1,33 @@
+{
+	"index.html": {
+		"refer": [
+			"index-menu.html",
+			"examples/guide.html",
+			"examples/info.html",
+			"examples/setting.html",
+			"examples/login.html",
+			"examples/echarts.html",
+			"examples/media-list.html",
+			"examples/tab-webview-main.html",
+			"examples/lazyload-image.html",
+			"examples/accordion.html",
+			"examples/card.html",
+			"examples/nav.html",
+			"examples/range.html",
+			"examples/switches.html",
+			"examples/indexed-list-select.html",
+			"examples/im-chat.html"
+		]
+	},
+	"examples/tab-webview-main.html": {
+		"resources": [
+			"examples/tab-webview-subpage-about.html"
+		],
+		"refer": [
+			"examples/tab-webview-subpage-setting.html",
+			"examples/tab-webview-subpage-chat.html",
+			"examples/tab-webview-subpage-contact.html",
+			"examples/tab-webview-subpage-about.html"
+		]
+	}
+}

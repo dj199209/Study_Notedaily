@@ -9,7 +9,7 @@
 		function btnCli(){
 			//1.获取元素
 			var obj=document.getElementById("divid0");
-			//alert(obj)
+			alert(obj.nodeValue)
 			
 			//2.操作元素
 			//添加背景色
@@ -25,7 +25,7 @@
 	</script>
 	<body>
 		<input type="button" value="将div加上样式" onclick="btnCli()"/>
-		<div id="divid0"></div>
+		<div id="divid0" value="111"></div>
 		
 	</body>
 </html>

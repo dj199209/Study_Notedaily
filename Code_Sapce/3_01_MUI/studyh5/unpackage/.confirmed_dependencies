@@ -1,0 +1,18 @@
+{
+	"index.html": {
+		"refer": [
+			"plus/barcode_text.html",
+			"plus/barcode.html"
+		]
+	},
+	"plus/barcode_text.html": {
+		"refer": [
+			"plus/barcode_scan.html"
+		]
+	},
+	"plus/barcode.html": {
+		"refer": [
+			"plus/barcode_scan.html"
+		]
+	}
+}
