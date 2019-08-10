@@ -177,3 +177,6 @@
 - supplementary buttons anki (旧)
 - power format pack(旧)--可以使用markdown
 - mini format pack(295889520)
+###  Image Occlusion Enhanced for Anki 2.1 (alpha)
+- 图片卡片制作
+- 1374772155
