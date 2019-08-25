@@ -137,3 +137,44 @@ delete from 表名 where 条件
 ### Sql查询语句
 **关键词**
 `select` 
+
+
+## JDBC
+**关键词**:`查询:executeQuery` `增删改:executeUpdate`
+
+
+- 操作步骤
+	1. 注册驱动
+	2. 获取连接
+	3. 获取预处理对象
+	4. SQL语句占位符设置实际参数
+	5. 执行SQL语句
+	6. 释放资源
+
+```java
+//1. 注册驱动
+Class.forName("com.mysql.jdbc.Driver");
+//2. 获取数据连接
+String url ="jdbc:mysql://127.0.0.1:3306/mydata";
+		String username = "root";
+		String passwd = "root";
+		Connection con = DriverManager.getConnection(url, username, passwd);
+// 3获得预处理对象
+    String sql = "insert into sort(sname) values(?)";
+    PreparedStatement stat = con.prepareStatement(sql);
+// 4 SQL语句占位符设置实际参数
+    pst.setObject(1, "汽车美容");
+    pst.setString(1, "奢侈品");
+    pst.setInt(2, 1);
+//5.执行sql
+//调用方法,执行SQL,获取结果集
+		ResultSet rs = pst.executeQuery();
+		while(rs.next()){
+			System.out.println(rs.getString("username")+"   "+rs.getString("password"));
+		}
+//6. 释放资源
+rs.close();
+pst.close()
+con.close();
+```
+### JDBC工具类

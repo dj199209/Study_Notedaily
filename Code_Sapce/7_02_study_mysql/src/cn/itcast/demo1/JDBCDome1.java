@@ -15,13 +15,16 @@ public class JDBCDome1 {
 		String username = "root";
 		String passwd = "root";
 		Connection con = DriverManager.getConnection(url, username, passwd);
+		// 3获得预处理对象
 		String sql = "select * from sort";
 		PreparedStatement pst = con.prepareStatement(sql);
+		
 		ResultSet rs =  pst.executeQuery();
+		// 4 SQL语句占位符设置实际参数
+		
 		while(rs.next()) {
 			System.out.println(rs.getString("sid")+"  "+rs.getString("sname")+"  "+
 							rs.getString("sprice")+"  "+rs.getString("sdesc"));
-			
 		}
 		rs.close();
 		con.close();
