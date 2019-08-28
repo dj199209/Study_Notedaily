@@ -12,4 +12,18 @@ public class ZhangWuService {
 //		return list;
 		return dao.seletAll();
 	}
+	public List<ZhangWu> select(String startDate,String endDate) {
+		return dao.select(startDate, endDate);
+	}
+	public void addZhangHu(ZhangWu zw) {
+		// TODO Auto-generated method stub
+		dao.addZhangHu(zw);
+	}
+	public void editZhangWu(ZhangWu zw) {
+		dao.editZhangWu(zw);
+	}
+	public void deleteZhangWu(int zwid) {
+		dao.deleteZhangWu(zwid);
+	}
+	
 }
