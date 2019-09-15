@@ -10,23 +10,30 @@ import java.util.ResourceBundle;
 public class JdbcUtils {
 	// 获取连接
 	//获取
-	static String driverClass;
-	static String ulr;
-	static String user;
-	static String passwd;
+	static final String DRIVERCLASS;
+	static final String ULR;
+	static final String USER;
+	static final String PASSWD;
 	static {
 		ResourceBundle bundle = ResourceBundle.getBundle("jdbc");
-		   bundle.getString("dirverClass");
-		   bundle.getString("ulr");
-		   bundle.getString("user");
-		   bundle.getString("passwd");
+		DRIVERCLASS =  bundle.getString("dirverClass");
+		ULR = bundle.getString("ulr");
+		USER= bundle.getString("user");
+		PASSWD =  bundle.getString("passwd");
+	}
+	static {
+		// 注册驱动
+		try {
+			Class.forName(DRIVERCLASS);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
-		// 注册
-		 
-		Class.forName(driverClass);
+		Class.forName(DRIVERCLASS);
 		// 获取连接
-		Connection con = DriverManager.getConnection(ulr, user, passwd);
+		Connection con = DriverManager.getConnection(ULR, USER, PASSWD);
 		return con;
 	}
 

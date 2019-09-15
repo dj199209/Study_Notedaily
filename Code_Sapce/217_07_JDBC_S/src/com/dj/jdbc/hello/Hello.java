@@ -14,6 +14,30 @@ public class Hello {
 		System.out.println("hello");
 	}
 	@Test
+	public void f11() {
+		Connection conn =null;
+		PreparedStatement st =null;
+		ResultSet re =null;
+		try {
+			conn =JdbcUtils.getConnection();
+			String sql = "update category set cname = ? where cid = ?";
+			st= conn.prepareStatement(sql);
+			st.setString(1,"手机");
+			st.setString(2, "c006");
+			int i= st.executeUpdate();
+			if (i==1) {
+				System.out.println("success1");
+			} else {
+				System.out.println("fail ");
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JdbcUtils.closeResources(conn, st, re);
+		}
+	}
+	@Test
 	public void jdbc() throws Exception {
 		//注册
 		Class.forName("com.mysql.jdbc.Driver");
