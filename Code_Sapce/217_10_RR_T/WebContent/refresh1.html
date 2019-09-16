@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 
+	http-equiv:响应头
+	content:响应头的内容
+ -->
+<meta http-equiv="refresh" content="3;url=/day10/refresh2.html">
+<title>Insert title here</title>
+</head>
+<body>
+	XXXX成功了,<span id="sid">3</span>秒之后跳转到refresh2.html上.
+</body>
+<script type="text/javascript">
+	onload=function(){
+		//设置定时器
+		setInterval(changeS, 1000);
+	}
+	
+	i=3;
+	
+	//时间变化
+	function changeS(){
+		//1.获取元素
+		var obj=document.getElementById("sid");
+		
+		//2.操作元素的标签体
+		obj.innerHTML=--i;
+	}
+	
+
+</script>
+</html>

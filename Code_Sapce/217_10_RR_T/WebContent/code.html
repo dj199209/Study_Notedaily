@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<img alt="验证码" src="/day10/code" title="看不清除,换一张" onclick="changeImg(this)">
+</body>
+<script type="text/javascript">
+	function changeImg(obj){
+		//操作src属性
+		obj.src="/day10/code?i="+Math.random();
+		//obj.src="/day10/code";
+		//alert(1)
+	}
+</script>
+</html>

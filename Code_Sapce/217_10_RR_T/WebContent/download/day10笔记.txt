@@ -1,0 +1,193 @@
+回顾:
+http::
+	超文本传输协议
+	请求和响应
+servlet:
+	运行在服务器端的一个java小程序,本质就是一个类
+	接受请求,处理逻辑,生成动态内容
+	编写步骤:
+		1.编写一个类
+			继承HttpServlet
+			重写doGet或者doPost方法
+		2.编写路径
+			<servlet>
+				<serlvet-name>
+				<serlvet-class>
+				
+			<servlet-mapping>
+				<serlvet-name>
+				<url-pattern>
+		3.测试
+			http://主机:端口号/项目名/路径
+	servlet的体系结构:
+		Servlet--->GenericServlet-->HttpServlet
+	HttpServlet:
+		实现了service方法,强转了两个参数,调用了重载的service方法
+		 重载的service方法中,获取请求的方式,根据请求方式的不同调用相应的doXxx方法
+		doGet():处理get请求的逻辑
+		doPostt():处理post请求的逻辑 (只有表单提交的时候把method设置成post的时候)
+	servlet的生命周期:
+		init(ServletConfig config):
+		service(ServletRequest request,ServletResponse response):
+		destroy():
+/////////////////////
+	url-pattern的配置:
+		完全匹配  /a/b
+		目录匹配  /a/b/*
+		后缀名匹配 *.jsp
+		优先级:完全匹配 >目录匹配 >后缀名匹配
+	  一个路径对应一个servlet
+	  一个servlet可以对应多个路径
+//////////////////////
+	load-on-startup:修改servlet的初始化时机
+////////////////////////
+	当我们的项目处理不了请求的时候,服务器里面defaultservlet来处理.
+//////////////////////////
+	路径的写法:
+		相对路径
+		绝对路径:(常用)
+			带主机和协议的路径(访问站外资源)
+			不带主机和协议的路径(最常用的)
+				/项目名/资源路径
+////////////////////////////
+servletConfig:(了解)
+	servlet的配置对象
+	作用:
+		获取servlet的名称
+		获取servlet初始化参数
+		★获取全局管理者
+servletContext:
+	上下文(全局管理者)
+	作用:
+		1.获取全局的初始化参数
+		2.共享资源
+		3.获取资源
+		4.获取文件的mime类型
+	获取:
+		在servlet中直接调用 getServletContext()
+	常用方法:
+		String getInitParameter(String key):根据key获取指定的初始化参数
+			<context-param>
+				<param-name>
+				<param-value>
+			
+		String getRealPath(String 文件路径):获取的指定文在在tomcat上的绝对路径
+			文件路径从项目的根目录往后写
+		InputStream getREsourceAsStream(String 文件路径):以流的形式返回一个文件
+		
+		String getMimeType(文件名):格式 大类型/小类型
+		
+/////////////////////////////////////
+域对象:
+	创建:在服务器启动的时候,服务器会为每一个项目创建一个全局管理者,servletcontext就是当前项目的引用
+	销毁:在项目被移除或者服务器关闭的时候销毁
+	常用的方法:
+		xxxAttribute()
+			setAttribute(String key,Object value)
+			Object getAttribute(String key)
+			removeAttribute(String key)
+//////////////////////////////////////////
+通过类加载器获取文件的路径(处于classes目录下的文件)
+	类.class.getClassLoader().getReource("文件路径").getPath()
+	类.class.getClassLoader().getReourceAsStream("文件路径")
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+要求:会使用request和response
+案例1-文件下载案例
+技术分析:
+	response
+	文件下载
+//////////////////////
+response:响应
+	作用:
+		往浏览器写东西
+	组成部分:
+		响应行 响应头 响应体
+	操作响应行 
+		格式:
+			协议/版本 状态码 状态码说明
+		状态码:
+			1xx:已发送请求
+			2xx:已完成响应
+				200:正常响应
+			3xx:还需浏览器进一步操作
+				302:重定向 配合响应头:location
+				304:读缓存
+			4xx:用户操作错误
+				404:用户操作错误.
+				405:访问的方法不存在
+			5xx:服务器错误
+				500:内部异常
+		常用方法:
+			setStatus(int 状态码):针对于 1 2 3 
+			了解 :
+				sendError(int 状态码):针对于 4xx和5xx
+	操作响应头 
+		格式:key/value(value可以是多个值)
+		常用的方法:
+			setHeader(String key,String value):设置字符串形式的响应头
+			了解:setIntHeader(String key,int value):设值整形的响应头
+			了解:setDateHeader(String key,long value):设值时间的响应头
+			
+			addHeader(String key,String value):添加置字符串形式的响应头 之前设置过则追加,若没有设置过则设置
+			了解:addIntHeader(String key,int value):添加整形的响应头
+			了解:addDateHeader(String key,long value):添加时间的响应头
+		常用的响应头:
+			location:重定向
+			refresh:定时刷新
+			content-type:设置文件的mime类型,设置响应流的编码及告诉浏览器用什么编码打开
+			content-disposition:文件下载
+			
+			重定向:	
+				方式1:
+					★response.sendRedirect("/day10/loc2");
+				方式2:
+					response.setStatus(302);
+					respooen.setHeader("location","/day10/loc2");
+					
+			定时刷新:
+				方案1:设置头 refresh 昨天做过
+					respooen.setHeader("refresh","秒数;url=跳转的路径");
+				方案2:http的meta标签
+					<meta http-equiv="refresh" content="3;url=/day10/refresh2.html">
+					
+		/////////////////////	
+	操作响应体:
+		页面上要展示的内容
+		常用方法:
+			Writer getWriter():字符流
+			ServletOutputStream getOutputStream() :字节流
+			
+			自己写的东西用字符流,其他一概用字节流.
+			
+		处理响应中文乱码:
+			方式1:★
+				response.setContentType("text/html;charset=utf-8");
+			方式2:理解
+				response.setHeader("content-type", "text/html;charset=utf-8");
+	
+		注意:
+			两个流互斥
+			当响应完成之后,服务器会判断一下流是否已经关闭,若没有关闭,服务器会帮我们关闭.(底层使用的缓冲流)
+//////////////////////////////	
+文件下载:
+	下载方式:
+		1.超链接下载
+			<a href="/day10/download/day10.txt">下载 day10.txt</a>
+		2.编码下载
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
