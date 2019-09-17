@@ -99,4 +99,54 @@
     <servlet-name>RowServlet</servlet-name>
     <url-pattern>/row</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HeaderServlet</display-name>
+    <servlet-name>HeaderServlet</servlet-name>
+    <servlet-class>com.dj.b_requset.e_header.HeaderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HeaderServlet</servlet-name>
+    <url-pattern>/header</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ParamServlet</display-name>
+    <servlet-name>ParamServlet</servlet-name>
+    <servlet-class>com.dj.b_requset.f.param.ParamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ParamServlet</servlet-name>
+    <url-pattern>/param</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>param_Servlet</display-name>
+    <servlet-name>param_Servlet</servlet-name>
+    <servlet-class>com.dj.b_requset.f.param.param_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>param_Servlet</servlet-name>
+    <url-pattern>/param_</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>dis1</display-name>
+    <servlet-name>dis1</servlet-name>
+    <servlet-class>com.dj.b_request.g_dis.Dis1Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dis1</servlet-name>
+    <url-pattern>/dis1</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>dis2</display-name>
+    <servlet-name>dis2</servlet-name>
+    <servlet-class>com.dj.b_request.g_dis.Dis2Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dis2</servlet-name>
+    <url-pattern>/dis2</url-pattern>
+  </servlet-mapping>
 </web-app>
