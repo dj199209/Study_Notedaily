@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> <!-- bean definitions here -->
+	
+	<!-- 配置客户的dao -->
+	<bean id="customerDao" class="com.itheima.demo3.CustomerDaoImpl"/>
+	
+	<!-- 编写切面类配置好 -->
+	<bean id="myAspectXml" class="com.itheima.demo3.MyAspectXml"/>
+	
+	<!-- 配置AOP -->
+	<aop:config>
+		<aop:aspect ref="myAspectXml">
+			<!-- 切入点的表达式 
+				1. execution()	固定的，不能不写
+				2. public 可以省略不写
+				3. void，返回值可以出现 * 表示任意的返回值，返回值类型不能不写
+				4. 可以使用 * 代替的，不能不编写的，简写方式：*..*方法
+				5. *DaoImpl
+				6. 方法 save*
+				7. 方法的参数：
+			-->
+			<!-- <aop:before method="log" pointcut="execution(public void com.itheima.demo3.CustomerDaoImpl.save())"/> -->
+			<!-- public 可以省略不写 -->
+			<!-- <aop:before method="log" pointcut="execution(void com.itheima.demo3.CustomerDaoImpl.save())"/> -->
+			
+			<!-- void，返回值可以出现 * 表示任意的返回值，返回值类型不能不写 -->
+			<!-- <aop:before method="log" pointcut="execution(* com.itheima.demo3.CustomerDaoImpl.save())"/> -->
+			
+			<!-- 包名可以使用 * 代替，不能不写 -->
+			<!-- <aop:before method="log" pointcut="execution(* com.itheima.*.CustomerDaoImpl.save())"/> -->
+			
+			<!-- 包的简写的方式，任意的包的结构 -->
+			<!-- <aop:before method="log" pointcut="execution(* *..*.CustomerDaoImpl.save())"/> -->
+			
+			<!-- 编写类的写法 -->
+			<!-- <aop:before method="log" pointcut="execution(* *..*.*DaoImpl.save())"/> -->
+			
+			<!-- 方法编写 -->
+			<!-- <aop:before method="log" pointcut="execution(* *..*.*DaoImpl.save*())"/> -->
+			
+			<!-- 参数列表：出现一个*，表示一个参数，任意参数使用 .. -->
+			<aop:before method="log" pointcut="execution(* *..*.*DaoImpl.save*(..))"/>
+		</aop:aspect>
+	</aop:config>
+	
+</beans>
+
+
+
+
+
+
+

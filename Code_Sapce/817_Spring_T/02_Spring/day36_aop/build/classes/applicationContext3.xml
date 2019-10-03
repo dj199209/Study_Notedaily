@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> <!-- bean definitions here -->
+	
+	<!-- 配置客户的dao -->
+	<bean id="customerDao" class="com.itheima.demo3.CustomerDaoImpl"/>
+	
+	<!-- 编写切面类配置好 -->
+	<bean id="myAspectXml" class="com.itheima.demo3.MyAspectXml"/>
+	
+	<!-- 配置AOP -->
+	<aop:config>
+		<aop:aspect ref="myAspectXml">
+			<!-- <aop:before method="log" pointcut="execution(public void com.itheima.demo3.CustomerDaoImpl.save())"/> -->
+			
+			<!-- 配置最终通知 
+			<aop:after method="after" pointcut="execution(public void com.itheima.demo3.CustomerDaoImpl.save())"/>
+			-->
+			
+			<!-- <aop:after-returning method="afterReturn" pointcut="execution(public void com.itheima.demo3.CustomerDaoImpl.save())"/> -->
+			
+			<!-- 环绕通知 -->
+			<aop:around method="around" pointcut="execution(public void com.itheima.demo3.CustomerDaoImpl.save())"/>
+		</aop:aspect>
+	</aop:config>
+	
+</beans>
+
+
+
+
+
+
+
